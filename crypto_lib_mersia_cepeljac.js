@@ -1,0 +1,85 @@
+//Partie1
+function what_are_words_worth() {
+    let word = prompt("Entrez un mot ou une phrase :");
+    if (!word) return false;  
+
+    let length = word.length;
+    let confirmation = confirm(`Votre entrée "${word}" comporte ${length} caractère(s). Validez-vous ?`);
+
+    return confirmation;
+}
+
+
+//Partie 2
+function count_words(string_of_words) {
+    if (!string_of_words || string_of_words.length === 0) return 0;
+
+    let count = 0;
+    let insideWord = false;
+
+    for (let i = 0; i < string_of_words.length; i++) {
+        let char = string_of_words.charAt(i);
+
+        if (char !== ' ') {
+            if (!insideWord) { 
+                count++;
+                insideWord = true;
+            }
+        } else {
+            insideWord = false;
+        }
+    }
+
+    return count;
+}
+
+
+//Partie 3
+function count_words_by(string_of_words, letter) {
+    if (!string_of_words || string_of_words.length === 0) return 0;
+    if (!letter || letter.length === 0) letter = ' '; // Si `letter` n'est pas défini, on utilise l'espace
+
+    let count = 0;
+    let insideWord = false;
+
+    for (let i = 0; i < string_of_words.length; i++) {
+        let char = string_of_words.charAt(i);
+
+        if (char !== letter) {
+            if (!insideWord) {
+                count++;
+                insideWord = true;
+            }
+        } else {
+            insideWord = false;
+        }
+    }
+
+    return count;
+}
+
+
+//Partie 4
+function is_a_vowel(letter) {
+    for (let i = 0; i < vowels.length; i++) {
+        if (letter === vowels[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function count_vowels(string_of_words) {
+    if (!string_of_words || string_of_words.length === 0) return 0;
+
+    let count = 0;
+
+    for (let i = 0; i < string_of_words.length; i++) {
+        if (is_a_vowel(string_of_words.charAt(i))) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
