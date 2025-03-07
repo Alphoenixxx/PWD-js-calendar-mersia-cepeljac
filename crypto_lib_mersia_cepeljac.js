@@ -97,3 +97,26 @@ function remove(string_of_words, character) {
 function remove_strings(string_of_words, characters) {
     return string_of_words ? string_of_words.split('').filter(c => !characters.includes(c)).join('') : '';
 }
+
+//Partie 8
+function crypto(a_string, a_number) {
+    if (!a_string || a_string.length === 0) return ''; 
+
+    let result = '';
+    
+    for (let i = 0; i < a_string.length; i++) {
+        let char = a_string.charAt(i);
+
+        if (alphabet.includes(char)) {
+            let newIndex = (alphabet.indexOf(char) + a_number) % alphabet.length;
+            result += alphabet.charAt(newIndex);
+        } else if (alphabet_upper.includes(char)) {
+            let newIndex = (alphabet_upper.indexOf(char) + a_number) % alphabet_upper.length;
+            result += alphabet_upper.charAt(newIndex);
+        } else {
+            result += char;
+        }
+    }
+
+    return result;
+}
