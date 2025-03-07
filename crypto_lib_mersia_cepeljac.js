@@ -83,3 +83,17 @@ function count_vowels(string_of_words) {
     return count;
 }
 
+//Partie 5
+function count_consonants(string_of_words) {
+    return string_of_words ? string_of_words.length - count_vowels(string_of_words) - (string_of_words.split(' ').length - 1) : 0;
+}
+
+//Partie 6 
+function remove(string_of_words, character) {
+    return string_of_words ? string_of_words.split(character).join('') : '';
+}
+
+//Partie 7
+function remove_strings(string_of_words, characters) {
+    return string_of_words ? string_of_words.split('').filter(c => !characters.includes(c)).join('') : '';
+}
