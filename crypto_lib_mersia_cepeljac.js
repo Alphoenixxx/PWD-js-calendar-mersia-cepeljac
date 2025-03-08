@@ -126,3 +126,12 @@ function decrypt(a_string, a_number) {
     return crypto(a_string, (26 - a_number) % 26);
 }
 
+//Partie 10
+function enigma(crypted_string) {
+    for (let i = 1; i < 26; i++) 
+        console.log(`Clé ${i}: ${decrypt(crypted_string, i)}`);
+}
+
+
+//En collaboration avec mon BFF l'IA
+//Juste un peu promis
